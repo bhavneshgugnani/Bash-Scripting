@@ -1,0 +1,11 @@
+
+#!/bin/bash
+
+# Check if this script file exists
+
+if [ -f ./checkiffileexists ]
+then
+	echo "Script exists in current directory."
+else
+	echo "Script not found!"
+fi

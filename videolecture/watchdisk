@@ -1,0 +1,8 @@
+
+#!/bin/bash
+
+# Watch disk size.
+
+df -h
+
+ls -la

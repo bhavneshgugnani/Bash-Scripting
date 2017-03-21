@@ -1,0 +1,19 @@
+
+#!/bin/bash
+
+# Check if directory exists
+
+mydir="temp_dir"
+
+mkdir ${mydir}
+
+ls -l
+
+if [ -d $mydir ]; then
+  echo "Directory exists."
+else
+  echo "Directory does not exists."
+fi
+
+rm -r ${mydir}
+

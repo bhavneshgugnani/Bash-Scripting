@@ -1,0 +1,12 @@
+
+#!/bin/bash
+
+# Check if machine plugged into power
+
+STATUS=$(pmset -g ps | grep "AC")
+if [ $? -eq 1 ]  # $? gives return status of command. It is 1 if no result is found, else 0.  
+then
+	echo "System Running on battery."
+else
+	echo "AC power plugged in."
+fi

@@ -1,0 +1,18 @@
+
+#!/bin/bash
+
+# This script imports a secondary script and call it's method
+
+
+# 1. Temporary redirect : control is temporarily redirected to secondary script and once secondary script completes, control comes back to primary script
+. ./secondaryscript
+# OR
+# source ./secondaryscript 
+
+method_secondary_script
+
+
+# 2. Fork : control is permanently transferred to secondayr script and control never returns to primary script.
+# exec ./secondaryscript
+
+echo "Ending Main script"

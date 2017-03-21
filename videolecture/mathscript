@@ -1,0 +1,20 @@
+
+#!/bin/bash
+
+# Math scripts and expresession handling.
+
+MYVAR1=100
+MYVAR2=10
+
+# Add
+expr $MYVAR1 + $MYVAR2
+
+# Divide
+expr $MYVAR1 / $MYVAR2
+
+# Multiple. * is used for wildcard in bash. so escape.
+expr $MYVAR1 \* $MYVAR2
+
+# Assign to new variable.
+let MYVAR3=MYVAR1-1
+echo $MYVAR3

@@ -1,0 +1,7 @@
+#!/bin/bash
+
+source ./template
+
+warn "SENDING WARNING MESSAGE"
+
+echo "Done!"

@@ -1,0 +1,10 @@
+
+#!/bin/bash
+
+# Sample function.
+
+samplefunc() {
+	echo "Sample Function executed."
+}
+
+samplefunc

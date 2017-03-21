@@ -1,0 +1,9 @@
+#!/usr/bin/expect -f
+
+spawn ssh 10.0.0.8
+expect "password: "
+send "thinkpad\r"
+expect "$ "
+send "ps -ef |grep apache\r"
+expect "$ "
+send "exit\r"

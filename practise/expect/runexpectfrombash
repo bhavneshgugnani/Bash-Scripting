@@ -1,0 +1,7 @@
+#!/bin/bash
+
+echo "Starting ..."
+
+/usr/bin/expect ./automateuserinput
+
+echo "Finished."

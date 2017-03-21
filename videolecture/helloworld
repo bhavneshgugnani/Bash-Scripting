@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# This script prints Hello world in terminal.
+# This is comment. All lines starting with # are not run except first line starting with #!
+
+MYVAR="Hello World."
+
+echo $MYVAR
+

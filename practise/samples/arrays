@@ -1,0 +1,24 @@
+
+#!/bin/bash
+
+# Arrays in bash script.
+
+check_if_equal () {
+  if [ ${0} -eq ${1} ]; then
+    echo "First 2 elements are equal."
+  else
+    echo "First 2 elements are not equal."
+  fi
+}
+
+arr=(1 3 "gugnani")
+
+check_if_equal ${arr[0]} ${arr[1]}
+
+echo "Reseting elements."
+arr[3]="bhavnesh"
+unset arr[1]
+arr[1]=1
+echo ${arr[@]}
+
+check_if_equal ${arr[0]} ${arr[1]}

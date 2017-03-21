@@ -1,0 +1,33 @@
+
+#!/bin/bash
+
+# Check if a file/folder exists in directory.
+
+FILE="myfile"
+FOLDER="myfolder"
+
+# Check if file exists.
+echo "Creating file"
+touch $FILE
+
+if [ -f ./$FILE ]; then
+	echo "The file exists."
+else
+	echo "The file does not exists."
+fi
+
+echo "Safely Removing file."
+rm $FILE
+
+# Check if folder exists
+echo "Creating folder"
+mkdir $FOLDER
+
+if [ -d ./$FOLDER ]; then
+	echo "The folder exists."
+else
+	echo "The folder does not exists."
+fi
+
+echo "Safely removing folder."
+rm -r $FOLDER

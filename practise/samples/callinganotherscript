@@ -1,0 +1,7 @@
+
+#!/bin/bash
+
+# Call another main script in same path.
+
+echo "Calling Main script in same path."
+./main

@@ -1,0 +1,10 @@
+
+#!/bin/bash
+
+# Add 2 numbers provided as arguments. Throw error if invalid input
+
+if [ $# -ne 2 ]; then
+  echo "Invalid input"
+  exit -1
+fi
+ echo "Sum : $(($1+$2))"

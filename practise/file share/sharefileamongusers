@@ -1,0 +1,102 @@
+#!/bin/bash
+
+# This script creates a temp file in a temp directory and allows 2 different users to read same file but cannot delete it. only another script can delete this file that can be run by admin/owner only.
+# This script does not checks for negative cases (which is easy to check by checking result status code and checking for 0)
+
+# Execution parameters allowed
+create="create"
+remove="remove"
+# Shared variables
+shared_dir="shared_dir"
+shared_file="shared_file.txt"
+# User Group and User variables. For simplicity, group and user names are hardcoded to avoid runtime issues. Logic can be improved easily to handle conflict issues by adding flags to commands.
+shared_group="Share_Group"
+user_1="user1"
+user_1_passwd="password1"
+user_2="user2"
+user_2_passwd="password2"
+default_user_life="" # for safety
+
+createshareddirandfile() {
+  echo "Creating shared directory and file ..."
+  mkdir ~/${shared_dir}
+  cd ~/${shared_dir}
+  touch ${shared_file}
+}
+
+assignprivilegestodirandfile() {
+  echo "Assigning necessary privileges to directory and file ..."
+  chmod u+rwx ~/${shared_dir}
+  chmod u+rwx ~/${shared_dir}/${shared_file}
+}
+
+createusergroupandusers() {
+  echo "Creating necessary user group ${shared_group} and users ..."
+  sudo groupadd ${shared_group} -f
+  # create base directories for users
+  mkdir ~/${shared_dir}/${user_1}
+  mkdir ~/${shared_dir}/${user_2}
+  # create users
+  sudo useradd ${user_1} -b ~/${shared_dir} -d ~/${shared_dir}/${user_1} -g ${shared_group} -c "User created from Share File script."
+  # there can be many ways to assign password, using this one for now.
+  echo -e "${user_1_passwd}\n${user_1_passwd}" | sudo passwd "${user_1}"
+  sudo useradd ${user_2} -b ~/${shared_dir} -d ~/${shared_dir}/${user_2} -g ${shared_group} -c "User created from Share File script."
+  echo -e "${user_2_passwd}\n${user_2_passwd}" | sudo passwd "${user_2}"
+  # run grep -c '^${user_1}:' /etc/passwd to see if user is created successfully
+}
+
+# Users : 'r-x' for directory and 'rw-' for file
+assignprivilegestousers() {
+  echo "Assinging necessary privileges to users ..."
+  # assign privileges to others (users)
+  sudo chmod o+rx ~/${shared_dir}
+  sudo chmod o-w ~/${shared_dir}
+  sudo chmod o+rw ~/${shared_dir}/${shared_file}
+  sudo chmod o-x ~/${shared_dir}/${shared_file}
+}
+
+removeusersandusergroup() {
+  echo "Removing user group and users ..."
+  sudo userdel ${user_1} -r -f
+  sudo userdel ${user_2} -r -f
+  sudo groupdel ${shared_group}
+}
+
+removefileanddir() {
+  echo "Removing shared file and directory ..."
+  rm -rf ~/${shared_dir} 
+}
+
+#-----------------------------------------------
+create() {
+  createshareddirandfile
+  assignprivilegestodirandfile
+  createusergroupandusers
+  assignprivilegestousers
+}
+
+remove() {
+  removeusersandusergroup
+  removefileanddir
+}
+
+printoptions() {
+  echo "Invalid Inputs! Only 2 options available for execution of this script"
+  echo -e "\t- ${create} : Create shared directory/file and users."
+  echo -e "\t- ${remove} : Remove shared directory/file and users.\n"
+}
+
+#-------------------Execution----------------------------
+if [ $# == 0 ]; then
+  printoptions
+elif [ ${1} == ${create} ]; then
+  echo "Creating ..."
+  create
+  echo "Done!"
+elif [ ${1} == ${remove} ]; then
+  echo "Removing ..."
+  remove
+  echo "Done!"
+else
+  printoptions
+fi 

@@ -1,0 +1,7 @@
+
+#!/bin/bash
+
+# Print home directory.
+
+cd ~
+ls -la

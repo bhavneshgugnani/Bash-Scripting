@@ -1,0 +1,16 @@
+
+#!/bin/bash
+#
+# Code format styles
+# 1. Indentation should be 2 spaces
+# 2. Put : then and ; do on same line as while, for and if
+# 3. Prefer ${var} over $var
+# 4. For string, uoting with '' means no variable substitution required. Quoting with "" means variable substitution required.
+# 5. To check if string is null or not, use -z and -n flags instead of checking for null or 0 length
+# 6. Naming Convention for functions : use lower case with _ seperating words. function keyword is optional. Paranthesis are required after function name.
+# 7. Naming conventions for variables : lower case letters
+# 8. Environment variables and Constants : At top of file and in Caps seperated by _
+# 9. Constants should have "readonly" "declare -r" at where constant variable is defined
+#10. Local variables : when declaring local variables inside a function fir usage, use local keyword at start. Eg: local var=${1}
+#11. These is no "main" function in bash script. So, Implement this function at end of script and call explicitly in case of a longer script.  
+

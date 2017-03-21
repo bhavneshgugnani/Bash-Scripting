@@ -1,0 +1,12 @@
+
+#!/bin/bash
+
+# If statement example.
+
+MYVAR=100
+
+if [ $MYVAR -eq 200 ]; then
+	echo "Equal to 200"
+else
+	echo "Not equal to 200"
+fi

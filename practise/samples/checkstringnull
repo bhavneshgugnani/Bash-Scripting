@@ -1,0 +1,11 @@
+
+#!/bin/bash
+
+# Check if string are null or not
+# -n flag for if string is not null
+# -z flag for if string is null ,i.e., has 0 length 
+
+read str
+
+[ -n ${str} ] && echo "String is not null."
+[ -z ${str} ] && echo "String is null."

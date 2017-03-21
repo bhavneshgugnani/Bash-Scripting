@@ -1,0 +1,16 @@
+
+#!/bin/bash
+
+# Passing function as argument
+
+function hellostr() {
+  echo "hello"
+}
+
+function print() {
+  echo "Starting Print."
+  echo $1
+  echo "Ending Print."
+}
+
+print hellostr

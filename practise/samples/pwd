@@ -1,0 +1,9 @@
+
+#!/bin/bash
+
+# Display present working directory.
+
+readonly PWD=${PWD}
+
+echo ${PWD}
+

@@ -1,0 +1,13 @@
+
+#!/bin/bash
+
+# While statement.
+
+MYVAR=1
+
+while [ $MYVAR -le 10 ]
+do
+	echo $MYVAR
+	let MYVAR=MYVAR+1    # OR MYVAR=$(( $MYVAR + 1  ))
+	sleep 0.5
+done

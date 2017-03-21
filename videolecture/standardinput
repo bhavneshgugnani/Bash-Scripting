@@ -1,0 +1,9 @@
+
+#!/bin.bash
+
+# Read standard input from user.
+
+echo "Enter Input : "
+read USERINPUT
+
+echo "User input : $USERINPUT"

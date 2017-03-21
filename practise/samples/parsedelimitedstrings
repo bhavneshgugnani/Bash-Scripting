@@ -1,0 +1,8 @@
+
+#!/bin/bash
+
+# Parse delimited string using awk command.
+
+mystr="bhavnesh:gugnani:bhavnesh.gugnani@gmail.com:655 Old County Road Apt# 14, Belmont, CA-94002"
+
+echo "First Name : ${mystr}"

@@ -1,0 +1,10 @@
+
+#!/bin/bash
+
+# This is secondary method used by 'importanotherscript' for importing secondary script and call method
+
+function method_secondary_script() {
+  echo "This is Secondary script's method execution"
+}
+
+echo "This is secondary script"

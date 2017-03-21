@@ -1,0 +1,14 @@
+
+#!/bin/bash
+
+# User input
+
+if [ $# == 0 ]; then
+  echo "0 arguments provided."
+else
+  echo "Number of inputs : $#"
+  for i in $@:
+  do
+    echo "Input : $i"
+  done
+fi

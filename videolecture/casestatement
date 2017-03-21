@@ -1,0 +1,25 @@
+
+#!/bin/bash
+
+# Case statement example.
+
+echo "Select option from below"
+
+echo "1 - First option."
+echo "2 - Second option."
+echo "3 - Third option."
+echo "4 - Fourth option."
+
+read OPTION
+
+case $OPTION in
+	1) echo "First option selected.";;
+	2) echo "Second option selected.";;
+	3) echo "Third option selected.";;
+	4) echo "Fourth option selected.";;
+	*) echo "Invalid option $OPTION"
+	# invalid option selected
+	;;
+esac
+
+

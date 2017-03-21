@@ -1,0 +1,11 @@
+#!/usr/bin/expect
+
+set timeout 20
+
+spawn /bin/bash ./sampleoutput
+
+expect "hello"
+send "Not Matching Content : <$expect_out(buffer)> \n"
+send "Matched Content : <$expect_out(0,string)> \n"
+
+interact

@@ -1,0 +1,8 @@
+
+#!/bin/bash
+
+# use 0 for safe termintion or any other digit for unsafe termination.
+
+echo "Hello."
+exit -1
+echo "Bye."

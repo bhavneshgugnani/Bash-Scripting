@@ -1,0 +1,11 @@
+
+#!/bin/bash
+
+# Main example for bash script.
+
+main () {
+  echo "In Main."
+  echo ${1}
+}
+
+main ${@} # pass all input arguments

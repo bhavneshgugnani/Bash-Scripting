@@ -1,0 +1,11 @@
+#!/usr/bin/expect
+
+set timeout 20
+
+spawn /bin/bash ./add
+
+expect "First Number : "
+send "5\r"
+expect "Second Number : "
+send "10\r"
+interact
